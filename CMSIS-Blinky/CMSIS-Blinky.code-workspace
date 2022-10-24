@@ -6,6 +6,14 @@
 		{
 			"name": "Projects",
 			"path": ".."
+		},
+		{
+			"name": "Blinky",
+			"path": "../MBED-Blinky/Blinky"
+		},
+		{
+			"name": "Input_Example",
+			"path": "../Input_Example"
 		}
 	],
 	"settings": {}
