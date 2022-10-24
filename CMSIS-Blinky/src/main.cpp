@@ -26,7 +26,7 @@ int main()
         GPIOD->ODR |= (1 << LED_RED);
         GPIOD->ODR |= (1 << LED_BLUE);
         ms_delay(500);
-        GPIOD->ODR |= MASK(LED_GREEN); // Green LED
+        GPIOD->ODR |= MASK(LED_GREEN); // Gree
         GPIOD->ODR &= ~MASK(LED_ORANGE);
         GPIOD->ODR &= ~MASK(LED_RED);
         GPIOD->ODR &= ~MASK(LED_BLUE);
