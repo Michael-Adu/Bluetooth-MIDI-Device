@@ -8,6 +8,8 @@ DigitalOut led3(LED6);
 DigitalOut led4(LED3);
 InterruptIn userPin(USER_BUTTON);
 
+
+
 void showAllLED();
 void flash_sequence();
 
@@ -17,9 +19,7 @@ int main() {
 
 
   while(1) {
-    while(1){
       flash_sequence();
-    }
     // put your main code here, to run repeatedly:
   }
 }

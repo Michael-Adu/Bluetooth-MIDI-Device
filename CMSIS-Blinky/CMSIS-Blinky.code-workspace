@@ -14,7 +14,44 @@
 		{
 			"name": "Input_Example",
 			"path": "../Input_Example"
+		},
+		{
+			"name": "Analog Test",
+			"path": "../Analog Test"
+		},
+		{
+			"name": "Buzzer PWM",
+			"path": "../Buzzer PWM"
+		},
+		{
+			"name": "LCD Display",
+			"path": "../LCD Display"
+		},
+		{
+			"name": "Bluetooth Test",
+			"path": "../Bluetooth Test"
+		},
+		{
+			"name": "Bluetooth Piano",
+			"path": "../Bluetooth Piano"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"xlocale": "cpp",
+			"ratio": "cpp",
+			"chrono": "cpp",
+			"functional": "cpp",
+			"optional": "cpp",
+			"system_error": "cpp",
+			"type_traits": "cpp",
+			"xlocmon": "cpp",
+			"xtr1common": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp",
+			"array": "cpp",
+			"tuple": "cpp",
+			"utility": "cpp"
+		}
+	}
 }
