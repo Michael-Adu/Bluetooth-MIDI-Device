@@ -112,16 +112,16 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
                           MaterialPageRoute(
                             builder: (context) => Piano(keys: [
                               global.MusicKey("C", 1),
-                              global.MusicKey("c", 2),
+                              global.MusicKey("C#", 2),
                               global.MusicKey("D", 3),
-                              global.MusicKey("d", 4),
+                              global.MusicKey("D#", 4),
                               global.MusicKey("E", 5),
                               global.MusicKey("F", 6),
-                              global.MusicKey("f", 7),
+                              global.MusicKey("F#", 7),
                               global.MusicKey("G", 8),
-                              global.MusicKey("g", 9),
+                              global.MusicKey("G#", 9),
                               global.MusicKey("A", 10),
-                              global.MusicKey("a", 11),
+                              global.MusicKey("A#", 11),
                               global.MusicKey("B", 12),
                               global.MusicKey("b", 13)
                             ]),

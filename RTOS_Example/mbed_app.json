@@ -1,0 +1,10 @@
+{
+    "requires": [
+        "rtos-api"
+    ],
+    "target_overrides": {
+        "*": {
+            "target.printf_lib": "std"
+        }
+    }
+}

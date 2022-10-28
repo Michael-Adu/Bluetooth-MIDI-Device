@@ -1,0 +1,9 @@
+{
+    "requires": ["bare-metal", "rtos-api"],
+    "target_overrides": {
+        "*": {
+            "target.c_lib": "small",
+            "target.printf_lib": "std"
+        }
+    }
+}

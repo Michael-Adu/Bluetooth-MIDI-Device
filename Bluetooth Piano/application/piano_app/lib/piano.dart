@@ -88,7 +88,7 @@ class _PianoState extends State<Piano> {
                               onRelease: () {
                                 try {
                                   global.activeConnection.output.add(
-                                      Uint8List.fromList(utf8.encode("0")));
+                                      Uint8List.fromList(utf8.encode(";")));
                                   print("Key Released");
                                 } catch (e) {}
                               },
@@ -111,14 +111,14 @@ class _PianoState extends State<Piano> {
                                 pressed: () {
                                   try {
                                     global.activeConnection.output.add(
-                                        Uint8List.fromList(utf8
-                                            .encode(e.pKey.name.toString())));
+                                        Uint8List.fromList(utf8.encode(
+                                            e.pKey.name[0].toLowerCase())));
                                   } catch (e) {}
                                 },
                                 onRelease: () {
                                   try {
                                     global.activeConnection.output.add(
-                                        Uint8List.fromList(utf8.encode("0")));
+                                        Uint8List.fromList(utf8.encode(";")));
                                     print("Key Released");
                                   } catch (e) {}
                                 },

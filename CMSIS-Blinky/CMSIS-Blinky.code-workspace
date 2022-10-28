@@ -42,6 +42,14 @@
 		{
 			"name": "MPU",
 			"path": "../MPU"
+		},
+		{
+			"name": "RTOS_Example",
+			"path": "../RTOS_Example"
+		},
+		{
+			"name": "RTOS_Disco",
+			"path": "../RTOS_Disco"
 		}
 	],
 	"settings": {
