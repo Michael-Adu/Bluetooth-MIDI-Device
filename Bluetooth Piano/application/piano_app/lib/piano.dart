@@ -72,8 +72,8 @@ class _PianoState extends State<Piano> {
                               pressed: () {
                                 try {
                                   global.activeConnection.output.add(
-                                      Uint8List.fromList(utf8.encode(
-                                          e.pKey.frequency.toString())));
+                                      Uint8List.fromList(
+                                          utf8.encode(e.pKey.name.toString())));
                                 } catch (e) {}
                               },
                               onRelease: () {
@@ -102,8 +102,8 @@ class _PianoState extends State<Piano> {
                                 pressed: () {
                                   try {
                                     global.activeConnection.output.add(
-                                        Uint8List.fromList(utf8.encode(
-                                            e.pKey.frequency.toString())));
+                                        Uint8List.fromList(utf8
+                                            .encode(e.pKey.name.toString())));
                                   } catch (e) {}
                                 },
                                 onRelease: () {

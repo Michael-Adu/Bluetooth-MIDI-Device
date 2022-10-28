@@ -50,19 +50,19 @@ class _HomeState extends State<Home> {
       ),
       body: Piano(
         keys: [
-          global.MusicKey("C", 262),
-          global.MusicKey("C#", 277),
-          global.MusicKey("D", 293),
-          global.MusicKey("D#", 311),
-          global.MusicKey("E", 330),
-          global.MusicKey("F", 349),
-          global.MusicKey("F#", 370),
-          global.MusicKey("G", 392),
-          global.MusicKey("G#", 415),
-          global.MusicKey("A", 440),
-          global.MusicKey("A#", 466),
-          global.MusicKey("B ", 494),
-          global.MusicKey("C ", 523)
+          global.MusicKey("C", 1),
+          global.MusicKey("C#", 2),
+          global.MusicKey("D", 3),
+          global.MusicKey("D#", 4),
+          global.MusicKey("E", 5),
+          global.MusicKey("F", 6),
+          global.MusicKey("F#", 7),
+          global.MusicKey("G", 8),
+          global.MusicKey("G#", 9),
+          global.MusicKey("A", 10),
+          global.MusicKey("A#", 11),
+          global.MusicKey("B ", 12),
+          global.MusicKey("C ", 13)
         ],
       ),
     );
