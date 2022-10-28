@@ -21,19 +21,19 @@ int sel;
 float amplitude = 0;
 string note = "";
 MusicKey keys[13] = {
-    {"C4", 262},
-    {"C#", 277},
-    {"Dm", 293},
-    {"D#", 311},
-    {"Em", 330},
-    {"Fm", 349},
-    {"F#", 370},
-    {"Gm", 392},
-    {"G#", 415},
-    {"Am", 440},
-    {"A#", 466},
-    {"Bm", 494},
-    {"C5", 523}
+    {"C", 262},
+    {"c", 277},
+    {"D", 293},
+    {"d", 311},
+    {"E", 330},
+    {"F", 349},
+    {"f", 370},
+    {"G", 392},
+    {"g", 415},
+    {"A", 440},
+    {"a", 466},
+    {"B", 494},
+    {"b", 523}
 
 };
 
@@ -60,10 +60,6 @@ int main()
 void on_rx_interrupt()
 {
   char c;
-  if (note.length() > 2)
-  {
-    note.clear();
-  }
   char *token;
   if (bluetooth.readable())
   {
@@ -71,15 +67,13 @@ void on_rx_interrupt()
     token = strtok(&c, "^@Q");
     if (token != NULL)
     {
-      note.append(token);
       if (note.length() > 2)
       {
         for (int j = 0; j < 13; j++)
         {
           string str_1 = keys[j].key;
-          int res = str_1.find(note);
-          
-            bluetooth.write(note.c_str(), 2);
+          int res = str_1.find(&c);
+          bluetooth.write(&c, 1);
           if (res == 0)
           {
             sel = keys[j].frequency;

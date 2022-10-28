@@ -86,7 +86,7 @@ ThemeData darkTheme = ThemeData(
         brightness: Brightness.light),
     fontFamily: "Baloo 2",
     appBarTheme: const AppBarTheme(
-        backgroundColor: Color.fromARGB(255, 224, 82, 0),
+        backgroundColor: Color(0xff4EA8DE),
         iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(
             fontSize: 25,
@@ -94,9 +94,8 @@ ThemeData darkTheme = ThemeData(
             fontFamily: "Baloo 2",
             color: Colors.white)),
     backgroundColor: Color.fromARGB(255, 0, 0, 0),
-    scaffoldBackgroundColor: Color.fromARGB(255, 0, 0, 0),
-    drawerTheme:
-        const DrawerThemeData(backgroundColor: Color.fromARGB(255, 224, 82, 0)),
+    scaffoldBackgroundColor: Color.fromARGB(151, 78, 167, 222),
+    drawerTheme: const DrawerThemeData(backgroundColor: Color(0xff4EA8DE)),
     cardTheme: const CardTheme(
         shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(

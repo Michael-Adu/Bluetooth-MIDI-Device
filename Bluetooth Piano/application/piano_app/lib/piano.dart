@@ -53,7 +53,16 @@ class _PianoState extends State<Piano> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: ((context, constraints) {
+    return Scaffold(appBar: AppBar(
+      leading: Builder(builder: (context) {
+        return IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        );
+      }),
+    ), body: LayoutBuilder(builder: ((context, constraints) {
       Size windowSize = Size(constraints.maxWidth, constraints.maxHeight);
       return Container(
           width: windowSize.width * 1,
@@ -117,7 +126,7 @@ class _PianoState extends State<Piano> {
                           .toList()))
             ],
           ));
-    }));
+    })));
   }
 }
 
