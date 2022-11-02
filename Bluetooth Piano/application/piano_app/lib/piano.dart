@@ -81,23 +81,27 @@ class _PianoState extends State<Piano> {
                               pressed: () {
                                 try {
                                   global.activeConnection.output.add(
-                                      Uint8List.fromList(
-                                          utf8.encode(e.pKey.name.toString())));
+                                      Uint8List.fromList(utf8.encode(
+                                          e.pKey.name.toString() + "p")));
+                                  print(
+                                      "Key Released" + e.pKey.name.toString());
                                 } catch (e) {}
                               },
                               onRelease: () {
                                 try {
                                   global.activeConnection.output.add(
-                                      Uint8List.fromList(utf8.encode(";")));
-                                  print("Key Released");
+                                      Uint8List.fromList(utf8.encode(
+                                          e.pKey.name.toString() + ";")));
+                                  print(
+                                      "Key Released" + e.pKey.name.toString());
                                 } catch (e) {}
                               },
                             ))
                         .toList(),
                   )),
               Container(
-                  margin:
-                      EdgeInsets.fromLTRB(windowSize.width * 0.0625, 0, 0, 0),
+                  margin: EdgeInsets.fromLTRB(
+                      windowSize.width * 0.8 / widget.keys!.length, 0, 0, 0),
                   alignment: Alignment.topCenter,
                   height: windowSize.height * 0.65,
                   child: Row(
@@ -111,16 +115,23 @@ class _PianoState extends State<Piano> {
                                 pressed: () {
                                   try {
                                     global.activeConnection.output.add(
-                                        Uint8List.fromList(utf8.encode(
-                                            e.pKey.name[0].toLowerCase())));
+                                        Uint8List.fromList(utf8.encode(e
+                                                .pKey.name
+                                                .split("#")[0]
+                                                .toLowerCase() +
+                                            "p")));
+                                    print("Key Released" +
+                                        e.pKey.name
+                                            .split("#")[0]
+                                            .toLowerCase());
                                   } catch (e) {}
                                 },
                                 onRelease: () {
-                                  try {
-                                    global.activeConnection.output.add(
-                                        Uint8List.fromList(utf8.encode(";")));
-                                    print("Key Released");
-                                  } catch (e) {}
+                                  // try {
+                                  //   global.activeConnection.output.add(
+                                  //       Uint8List.fromList(utf8.encode(";")));
+                                  //   print("Key Released");
+                                  // } catch (e) {}
                                 },
                               ))
                           .toList()))

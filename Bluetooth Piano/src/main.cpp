@@ -20,23 +20,42 @@ public:
 MusicKey::MusicKey(std::string myKey, int myFrequency) : key(myKey), frequency(myFrequency){};
 
 int freq;
+int keyNum = 0;
 volatile float amplitude = 1;
 float outputSignal[4] = {0, 0, 0, 0};
-char note[1];
-MusicKey keys[13] = {
-    {"C", 262},
-    {"c", 277},
-    {"D", 293},
-    {"d", 311},
-    {"E", 330},
-    {"F", 349},
-    {"f", 370},
-    {"G", 392},
-    {"g", 415},
-    {"A", 440},
-    {"a", 466},
-    {"B", 494},
-    {"b", 523}};
+string note;
+MusicKey keys[31] = {
+    {"C3", 131},
+    {"c3", 138},
+    {"D3", 147},
+    {"d3", 156},
+    {"E3", 165},
+    {"F3", 175},
+    {"f3", 185},
+    {"G3", 196},
+    {"g3", 207},
+    {"A3", 220},
+    {"a3", 233},
+    {"B3", 246},
+    {"C4", 262},
+    {"c4", 277},
+    {"D4", 293},
+    {"d4", 311},
+    {"E4", 330},
+    {"F4", 349},
+    {"f4", 370},
+    {"G4", 392},
+    {"g4", 415},
+    {"A4", 440},
+    {"a4", 466},
+    {"B4", 494},
+    {"C5", 523},
+    {"1d", 60},
+    {"2d", 218},
+    {"3d", 65},
+    {"4d", 87},
+    {"5d", 128},
+    {"6d", 150}};
 
 void on_rx_interrupt();
 void reduceAmp();
@@ -68,21 +87,38 @@ void on_rx_interrupt()
     token = strtok(&c, "^@");
     if (token != NULL)
     {
-      {
+      note.append(token);
 
-        for (int j = 0; j < 13; j++)
+      if (note.length() == 3)
+      {
+        char play = 'p';
+        if (note.find("p") != std::string::npos)
         {
-          if (keys[j].key.compare(token) == 0)
+
+          for (int j = 0; j < 31; j++)
           {
-            amplitude = 1;
-            amplitudeReduce.attach_us(&reduceAmp, 200000);
-            freq = keys[j].frequency;
-            signalCalculate(freq);
+            if (keys[j].key == note.substr(0, 2).c_str())
+            {
+              amplitude = 1;
+              if (j < (31 - 6))
+              {
+                amplitudeReduce.attach_us(&reduceAmp, 200000);
+              }
+              else
+              {
+                amplitudeDieDown.attach_us(&dieDown, 10000);
+              }
+              freq = keys[j].frequency;
+              bluetooth.write(note.c_str(), 3);
+              note.clear();
+            }
           }
         }
-        char l;
-        sprintf(&l, "%d", (int)(outputSignal[0] * 100));
-        bluetooth.write(&l, 4);
+        if (note.find(";") != std::string::npos)
+        {
+          bluetooth.write(note.c_str(), 3);
+          note.clear();
+        }
       }
     }
   }
@@ -91,7 +127,7 @@ void on_rx_interrupt()
 void reduceAmp()
 {
   amplitude = amplitude - 0.1;
-  if (amplitude < 0.7)
+  if (amplitude < 0.45)
   {
     amplitudeDieDown.attach_us(&dieDown, 130000);
     amplitudeReduce.detach();
@@ -100,7 +136,7 @@ void reduceAmp()
 
 void dieDown()
 {
-  amplitude = amplitude - 0.1;
+  amplitude = amplitude - 0.05;
   if (amplitude < 0)
   {
     amplitudeDieDown.detach();
@@ -111,5 +147,5 @@ void signalCalculate(int frequency)
 {
   int period = 1000000 / freq;
   int pos = tim.read_us() % period;
-  outputSignal[0] = amplitude * (sin((pos * 3.14f * 2 / period)));
+  outputSignal[keyNum] = amplitude * (sin((pos * 3.14f * 2 / period)));
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import "piano.dart";
+import "drums.dart";
 import 'global_variables.dart' as global;
 import "device_select.dart";
 
@@ -62,25 +63,37 @@ class _HomeState extends State<Home> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => Piano(keys: [
-                              global.MusicKey("C", 1),
-                              global.MusicKey("C#", 2),
-                              global.MusicKey("D", 3),
-                              global.MusicKey("D#", 4),
-                              global.MusicKey("E", 5),
-                              global.MusicKey("F", 6),
-                              global.MusicKey("F#", 7),
-                              global.MusicKey("G", 8),
-                              global.MusicKey("G#", 9),
-                              global.MusicKey("A", 10),
-                              global.MusicKey("A#", 11),
-                              global.MusicKey("B ", 12),
-                              global.MusicKey("C ", 13)
+                              global.MusicKey("C3", 1),
+                              global.MusicKey("C3#", 2),
+                              global.MusicKey("D3", 3),
+                              global.MusicKey("D3#", 4),
+                              global.MusicKey("E3", 5),
+                              global.MusicKey("F3", 6),
+                              global.MusicKey("F3#", 7),
+                              global.MusicKey("G3", 8),
+                              global.MusicKey("G3#", 9),
+                              global.MusicKey("A3", 10),
+                              global.MusicKey("A3#", 11),
+                              global.MusicKey("B3", 12),
+                              global.MusicKey("C4", 1),
+                              global.MusicKey("C4#", 2),
+                              global.MusicKey("D4", 3),
+                              global.MusicKey("D4#", 4),
+                              global.MusicKey("E4", 5),
+                              global.MusicKey("F4", 6),
+                              global.MusicKey("F4#", 7),
+                              global.MusicKey("G4", 8),
+                              global.MusicKey("G4#", 9),
+                              global.MusicKey("A4", 10),
+                              global.MusicKey("A4#", 11),
+                              global.MusicKey("B4", 12),
+                              global.MusicKey("C5", 13)
                             ]),
                           ));
                     },
                     child: Container(
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(157, 78, 167, 222),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 255, 115, 0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         width: windowSize.width * 0.3,
@@ -110,28 +123,20 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Piano(keys: [
-                              global.MusicKey("C", 1),
-                              global.MusicKey("C#", 2),
-                              global.MusicKey("D", 3),
-                              global.MusicKey("D#", 4),
-                              global.MusicKey("E", 5),
-                              global.MusicKey("F", 6),
-                              global.MusicKey("F#", 7),
-                              global.MusicKey("G", 8),
-                              global.MusicKey("G#", 9),
-                              global.MusicKey("A", 10),
-                              global.MusicKey("A#", 11),
-                              global.MusicKey("B", 12),
-                              global.MusicKey("b", 13)
-                            ]),
-                          ));
+                              builder: (context) => Drums(pads: [
+                                    global.MusicKey("1d", 1),
+                                    global.MusicKey("2d", 2),
+                                    global.MusicKey("3d", 3),
+                                    global.MusicKey("4d", 4),
+                                    global.MusicKey("5d", 5),
+                                    global.MusicKey("6d", 6)
+                                  ])));
                     },
                     child: Container(
                         width: windowSize.width * 0.3,
                         height: windowSize.height * 0.7,
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(157, 78, 167, 222),
+                        decoration: const BoxDecoration(
+                            color: Color.fromARGB(255, 255, 115, 0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         child: Column(
